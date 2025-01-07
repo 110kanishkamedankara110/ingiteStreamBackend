@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: uploaderService
+  servlet:
+    multipart:
+      enabled: true
+      max-request-size: 1024MB
+      max-file-size: 1024MB
+server:
+  port: 8082
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+

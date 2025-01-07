@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: videoProcessor
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
+        connection:
+          driver_class: com.mysql.cj.jdbc.Driver
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: user
+    password: password
+
+  datasource:
+    password: '0724886404Was'
+    username: 'root'
+    url: jdbc:mysql://localhost:3307/videoProcessor
+
+server:
+  port: 8083
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+rabbitmq:
+  exchanges:
+    internal: internal.exchange
+  queues:
+    notification: processor.queue
+  routing-keys:
+    internal-notification: igniteStream.processor.#

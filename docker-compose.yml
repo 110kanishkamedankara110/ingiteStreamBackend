@@ -1,0 +1,27 @@
+services:
+  video_stream_database:
+    container_name: video_stream_database
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 0724886404Was
+    volumes:
+      - mysql_data:/var/lib/mysql
+    ports:
+      - "3307:3306"
+    networks:
+      - mysql-network
+    restart: unless-stopped
+  ignite_stream_rabbitmq:
+    image: rabbitmq:4.0.3-management-alpine
+    container_name: ignite_stream_rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: user
+      RABBITMQ_DEFAULT_PASS: password
+networks:
+  mysql-network:
+    driver: bridge
+volumes:
+  mysql_data:

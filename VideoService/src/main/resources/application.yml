@@ -1,0 +1,53 @@
+spring:
+  application:
+    name: videoService
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
+        connection:
+          driver_class: com.mysql.cj.jdbc.Driver
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: user
+    password: password
+
+  datasource:
+    password: '0724886404Was'
+    username: 'root'
+    url: jdbc:mysql://localhost:3307/video
+  servlet:
+    multipart:
+      enabled: true
+      max-request-size: 1024MB
+      max-file-size: 1024MB
+
+server:
+  port: 8081
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+resilience4j.circuitbreaker:
+  instances:
+    uploaderService:
+      registerHealthIndicator: true
+      failureRateThreshold: 50
+      slidingWindowSize: 100
+      minimumNumberOfCalls: 10
+      waitDurationInOpenState: 10000ms
+      permittedNumberOfCallsInHalfOpenState: 5
+
+rabbitmq:
+  exchanges:
+    internal: internal.exchange
+  queues:
+    notification: processor.response.queue
+  routing-keys:
+    internal-notification: igniteStream.videoService.#
