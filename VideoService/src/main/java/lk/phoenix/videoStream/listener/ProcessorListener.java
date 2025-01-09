@@ -18,6 +18,10 @@ public class ProcessorListener {
     private final VideoRepository videoRepository;
     @RabbitListener(queues ="${rabbitmq.queues.notification}")
     public void consumer(VideoProcessorResponce videoProcessorResponce) throws IOException {
-        videoRepository.updateStatusById(Integer.valueOf(videoProcessorResponce.videoId()).longValue(),"Processed");
+        if(videoProcessorResponce.status()==503){
+            videoRepository.updateStatusById(Integer.valueOf(videoProcessorResponce.videoId()).longValue(),"Processing Failed");
+        }else{
+            videoRepository.updateStatusById(Integer.valueOf(videoProcessorResponce.videoId()).longValue(),"Processed");
+        }
     }
 }

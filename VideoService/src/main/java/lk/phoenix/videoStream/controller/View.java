@@ -10,19 +10,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.File;
-
 @RestController
 @RequestMapping("api/v1/VideoService")
-public class Play {
-    @GetMapping("/play")
-    public ResponseEntity<Resource> play(@RequestParam("v") String location) {
-        File videoFile = new File(location);
-        FileSystemResource file = new FileSystemResource(videoFile);
-        String[] ext=videoFile.getName().split("\\.");
+public class View {
+    @GetMapping("/view")
+    public ResponseEntity<Resource> play(@RequestParam("i") String location) {
+        File imageFile = new File(location);
+        FileSystemResource file = new FileSystemResource(imageFile);
+        String[] ext=imageFile.getName().split("\\.");
         return ResponseEntity
                 .ok()
-                .contentType(MediaType.parseMediaType("video/"+ext[ext.length-1]))
+                .contentType(MediaType.parseMediaType("image/"+ext[ext.length-1]))
                 .body(file);
     }
-
 }
+

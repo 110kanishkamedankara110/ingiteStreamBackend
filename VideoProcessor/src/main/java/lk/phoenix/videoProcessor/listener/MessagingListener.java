@@ -20,7 +20,7 @@ public class MessagingListener {
 
     @RabbitListener(queues ="${rabbitmq.queues.notification}")
     public void consumer(VideoProcessRequest videoProcessRequest) throws IOException {
-       VideoProcessorResponce responce=processor.process(videoProcessRequest);
-        rabbitMqMessageProducer.publish(responce,"internal.exchange","igniteStream.videoService.processed");
+       VideoProcessorResponce response=processor.process(videoProcessRequest);
+        rabbitMqMessageProducer.publish(response,"internal.exchange","igniteStream.videoService.processed");
     }
 }
