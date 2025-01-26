@@ -28,7 +28,7 @@ spring:
       max-file-size: 1024MB
 
 server:
-  port: 8081
+  port: 8089
 eureka:
   client:
     service-url:

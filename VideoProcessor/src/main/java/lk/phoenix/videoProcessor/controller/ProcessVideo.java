@@ -21,7 +21,7 @@ public class ProcessVideo {
     }
 
     @PostMapping("/process")
-    public VideoProcessorResponce processVideo(@RequestBody VideoProcessRequest request) throws IOException {
+    public VideoProcessorResponce processVideo(@RequestBody VideoProcessRequest request) throws Exception {
         return processor.process(request);
     }
 }

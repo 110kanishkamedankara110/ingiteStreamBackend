@@ -6,5 +6,8 @@ import java.io.Serializable;
 
 public record VideoUploadData(String title
         , String description
-        , MultipartFile videoFile) implements Serializable {
+        , MultipartFile videoFile,MultipartFile thumbnail) implements Serializable {
+    public VideoUploadData(MultipartFile videoFile, String title, String description) {
+        this(title, description, videoFile, null);
+    }
 }

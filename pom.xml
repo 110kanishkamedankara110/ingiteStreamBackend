@@ -18,7 +18,7 @@
         <module>VideoService</module>
         <module>apiGw</module>
         <module>clients</module>
-        <module>UploaderService</module>
+        <module>UploaderAndFetchService</module>
         <module>VideoProcessor</module>
         <module>RabbitMqMessanger</module>
     </modules>

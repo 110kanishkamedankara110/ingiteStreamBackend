@@ -1,7 +1,6 @@
 package lk.phoenix.clients.processorService;
 
 import lk.phoenix.clients.dto.VideoProcessedData;
-import lk.phoenix.clients.uploaderService.component.Fallback;
 import lk.phoenix.clients.uploaderService.config.UploaderConfig;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;

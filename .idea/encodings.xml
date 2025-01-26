@@ -2,7 +2,7 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/RabbitMqMessanger/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/UploaderService/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/UploaderAndFetchService/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/VideoProcessor/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/VideoService/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/VideoService/src/main/resources" charset="UTF-8" />

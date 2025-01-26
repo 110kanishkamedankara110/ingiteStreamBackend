@@ -1,6 +1,6 @@
 spring:
   application:
-    name: uploaderService
+    name: uploaderAndFetchService
   servlet:
     multipart:
       enabled: true
@@ -13,3 +13,6 @@ eureka:
     service-url:
       defaultZone: http://localhost:8761/eureka
 
+
+application:
+  root-path: C:/igniterStream/
